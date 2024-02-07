@@ -4,9 +4,9 @@ jest.mock('./index', () => {
   const originalModule = jest.requireActual<typeof import('./index')>('./index');
   return {
     ...originalModule,
-    mockOne: jest.fn(),
-    mockTwo: jest.fn(),
-    mockThree: jest.fn(),
+    mockOne: jest.fn(() => {}),
+    mockTwo: jest.fn(() => {}),
+    mockThree: jest.fn(() => {}),
   };
 });
 
@@ -22,7 +22,7 @@ describe('partial mocking', () => {
 
     mockTwo();
     expect(consoleSpy).not.toHaveBeenCalled();
-    
+
     mockThree();
     expect(consoleSpy).not.toHaveBeenCalled();
   });
