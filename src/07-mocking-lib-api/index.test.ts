@@ -35,7 +35,7 @@ describe('throttledGetDataFromApi', () => {
   });
 
   test('should return response data', async () => {
-    const data = 'posts';
+    const data = 'posts received';
     const relativePath = '/posts';
     jest.spyOn(axios, 'get').mockResolvedValueOnce({ data });
     const response = await throttledGetDataFromApi(relativePath);
